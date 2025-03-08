@@ -153,23 +153,40 @@ namespace WindowsFormsApp1
             return lines;
         }
 
+       
         private void timer1_Tick(object sender, EventArgs e)
         {
 
+            int g_minY = 100;
+            int g_maxY = -1;
             var Utilizations = GetGpuUtilization();
+            
             for (int i = 0; i < mychart.Series.Count; i++)
             {
                 if (i >= Utilizations.Length) continue;
 
-                if (mychart.Series[i].Points.Count > 20)
+                if (mychart.Series[i].Points.Count > 30)
                 {
                     mychart.Series[i].Points.RemoveAt(0);
                 }
-                mychart.Series[i].Points.AddXY( DateTime.Now,Int32.Parse(Utilizations[i]));
+                var value = Int32.Parse(Utilizations[i]);
+                mychart.Series[i].Points.AddXY( DateTime.Now,value);
+                int minY = 100;
+                int maxY = -1;
+                foreach (var point in mychart.Series[i].Points)
+                {
+                    if (point.YValues[0] < minY) minY = (int)point.YValues[0];
+                    if (point.YValues[0] > maxY) maxY = (int)point.YValues[0];
+                }
+                if (minY < g_minY) g_minY = minY;
+                if (maxY > g_maxY) g_maxY = maxY;
             }
             // 自动调整 X 轴范围
             mychart.ChartAreas[0].AxisX.Minimum = mychart.Series[0].Points[0].XValue;
             mychart.ChartAreas[0].AxisX.Maximum = mychart.Series[0].Points[mychart.Series[0].Points.Count - 1].XValue;
+
+            mychart.ChartAreas[0].AxisY.Minimum = g_minY ; // 适当增加缓冲区
+            mychart.ChartAreas[0].AxisY.Maximum = g_maxY + 5;
 
             mychart.Invalidate(); // 重新绘制
         }
