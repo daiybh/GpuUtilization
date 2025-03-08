@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mychart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -48,24 +48,24 @@
             // 
             // mychart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.mychart.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.mychart.ChartAreas.Add(chartArea1);
             this.mychart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Alignment = System.Drawing.StringAlignment.Center;
-            legend2.DockedToChartArea = "ChartArea1";
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend2.LegendItemOrder = System.Windows.Forms.DataVisualization.Charting.LegendItemOrder.SameAsSeriesOrder;
-            legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend2.Name = "Legend1";
-            this.mychart.Legends.Add(legend2);
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
+            legend1.DockedToChartArea = "ChartArea1";
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend1.LegendItemOrder = System.Windows.Forms.DataVisualization.Charting.LegendItemOrder.SameAsSeriesOrder;
+            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend1.Name = "Legend1";
+            this.mychart.Legends.Add(legend1);
             this.mychart.Location = new System.Drawing.Point(0, 25);
             this.mychart.Name = "mychart";
             this.mychart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.mychart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.mychart.Series.Add(series1);
             this.mychart.Size = new System.Drawing.Size(800, 425);
             this.mychart.TabIndex = 0;
             this.mychart.Text = "chart1";
@@ -99,7 +99,7 @@
             // 
             this.alwaysTopMostToolStripMenuItem.CheckOnClick = true;
             this.alwaysTopMostToolStripMenuItem.Name = "alwaysTopMostToolStripMenuItem";
-            this.alwaysTopMostToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alwaysTopMostToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.alwaysTopMostToolStripMenuItem.Text = "Always TopMost";
             this.alwaysTopMostToolStripMenuItem.Click += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -116,6 +116,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
