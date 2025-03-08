@@ -1,0 +1,165 @@
+﻿namespace WindowsFormsApp1
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.mychart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alwaysTopMostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton_AlwaysTopMost = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.mychart)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // mychart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.mychart.ChartAreas.Add(chartArea2);
+            this.mychart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Alignment = System.Drawing.StringAlignment.Center;
+            legend2.DockedToChartArea = "ChartArea1";
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend2.LegendItemOrder = System.Windows.Forms.DataVisualization.Charting.LegendItemOrder.SameAsSeriesOrder;
+            legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend2.Name = "Legend1";
+            this.mychart.Legends.Add(legend2);
+            this.mychart.Location = new System.Drawing.Point(0, 25);
+            this.mychart.Name = "mychart";
+            this.mychart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.mychart.Series.Add(series2);
+            this.mychart.Size = new System.Drawing.Size(800, 425);
+            this.mychart.TabIndex = 0;
+            this.mychart.Text = "chart1";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingToolStripMenuItem,
+            this.filterToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 25);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alwaysTopMostToolStripMenuItem});
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(59, 21);
+            this.settingToolStripMenuItem.Text = "setting";
+            // 
+            // alwaysTopMostToolStripMenuItem
+            // 
+            this.alwaysTopMostToolStripMenuItem.CheckOnClick = true;
+            this.alwaysTopMostToolStripMenuItem.Name = "alwaysTopMostToolStripMenuItem";
+            this.alwaysTopMostToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alwaysTopMostToolStripMenuItem.Text = "Always TopMost";
+            this.alwaysTopMostToolStripMenuItem.Click += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // filterToolStripMenuItem
+            // 
+            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(48, 21);
+            this.filterToolStripMenuItem.Text = "Filter";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton_AlwaysTopMost});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton_AlwaysTopMost
+            // 
+            this.toolStripButton_AlwaysTopMost.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_AlwaysTopMost.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_AlwaysTopMost.Image")));
+            this.toolStripButton_AlwaysTopMost.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_AlwaysTopMost.Name = "toolStripButton_AlwaysTopMost";
+            this.toolStripButton_AlwaysTopMost.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton_AlwaysTopMost.Text = "Always TopMost";
+            this.toolStripButton_AlwaysTopMost.Click += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.mychart);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "Form1";
+            this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.mychart)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.DataVisualization.Charting.Chart mychart;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alwaysTopMostToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton_AlwaysTopMost;
+    }
+}
+
