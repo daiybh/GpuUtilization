@@ -15,22 +15,10 @@ namespace WindowsFormsApp1
 {
     public partial class Form1: Form
     {
-        List<System.Drawing.Color> colors = new List<System.Drawing.Color>(){
-            
-            System.Drawing.Color.Red ,
-            System.Drawing.Color.Blue,
-            System.Drawing.Color.Green ,
-
-            System.Drawing.Color.Yellow,
-            System.Drawing.Color.Purple,
-            System.Drawing.Color.Brown,
-            System.Drawing.Color.Orange,
-            System.Drawing.Color.Black,
-        };
         public Form1()
         {
             InitializeComponent();
-            var gpuInfoList = GetGpuList();
+            var gpuInfoList = GPU.GetGpuList();
 
             // mychart.ChartAreas.Add(chartArea);
 
@@ -55,7 +43,7 @@ namespace WindowsFormsApp1
                     BorderWidth = 1,
                 };
 
-                 ls.Color = colors[i++];
+                 ls.Color = GPU.colors[i++];
                 filterToolStripMenuItem.DropDownItems.Add(new ToolStripMenuItem(item, null, (s, e) =>
                 {
                     if (s is ToolStripMenuItem menuItem)
@@ -117,41 +105,7 @@ namespace WindowsFormsApp1
                 }
             }
         }       
-        public string[] GetGpuList()
-        {
-           // return ["aa", "bb"];
-            var process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = "C:\\Windows\\System32\\nvidia-smi.exe",
-                    //FileName = "cmd.exe",
-                    // Arguments = "--query-gpu=name,pci.bus_id,utilization.gpu --format=csv,noheader,nounits",
-                    Arguments = "--query-gpu=name,pci.bus_id --format=csv,noheader,nounits",
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    CreateNoWindow = true
-                }
-            };
-            process.Start();
-            string output = process.StandardOutput.ReadToEnd().Trim();
-            process.WaitForExit();
-            /*
-              NVIDIA GeForce RTX 2080 Ti, 00000000:09:00.0
-              NVIDIA GeForce GTX 1080 Ti, 00000000:44:00.0
-             */
-            var lines = output.Replace("\r", "").Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-            //foreach (var item in lines)
-            //{
-            //    var gpuInfo = new GpuInfo
-            //    {
-            //        Title = item,
-            //      //  brushes = brushList[gpuInfoList.Count],
-            //    };
-            //  //  gpuInfoList.Add(gpuInfo);
-            //}
-            return lines;
-        }
+       
 
        
         private void timer1_Tick(object sender, EventArgs e)
@@ -159,17 +113,17 @@ namespace WindowsFormsApp1
 
             int g_minY = 100;
             int g_maxY = -1;
-            var Utilizations = GetGpuUtilization();
+            var Utilizations =GPU. GetGpuUtilization();
             
             for (int i = 0; i < mychart.Series.Count; i++)
             {
-                if (i >= Utilizations.Length) continue;
+                if (i >= Utilizations.Count) continue;
 
                 if (mychart.Series[i].Points.Count > 30)
                 {
                     mychart.Series[i].Points.RemoveAt(0);
                 }
-                var value = Int32.Parse(Utilizations[i]);
+                var value = Utilizations[i].GpuUtilization;
                 mychart.Series[i].Points.AddXY( DateTime.Now,value);
                 int minY = 100;
                 int maxY = -1;
@@ -191,33 +145,7 @@ namespace WindowsFormsApp1
             mychart.Invalidate(); // 重新绘制
         }
 
-        public string[] GetGpuUtilization()
-        {
-            var process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = "nvidia-smi",
-                    // Arguments = "--query-gpu=name,pci.bus_id,utilization.gpu --format=csv,noheader,nounits",
-                    Arguments = "--query-gpu=utilization.gpu --format=csv,nounits,noheader",
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    CreateNoWindow = true
-                }
-            };
-            process.Start();
-            string output = process.StandardOutput.ReadToEnd().Trim();
-            process.WaitForExit();
-            /*
-             * nvidia-smi --query-gpu=name,pci.bus_id,utilization.gpu --format=csv,noheader,nounits
-              name, pci.bus_id, utilization.gpu
-              NVIDIA GeForce RTX 2080 Ti, 00000000:09:00.0, 41
-              NVIDIA GeForce GTX 1080 Ti, 00000000:44:00.0, 13
-             */
-            var lines = output.Replace("\r", "").Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-            return lines;
-        }
+       
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
