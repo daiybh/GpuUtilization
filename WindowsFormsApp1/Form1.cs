@@ -52,7 +52,7 @@ namespace WindowsFormsApp1
                 {
                     ChartType = SeriesChartType.Line,
                     XValueType = ChartValueType.DateTime,
-                    BorderWidth = 10,
+                    BorderWidth = 1,
                 };
 
                  ls.Color = colors[i++];
