@@ -27,8 +27,8 @@ namespace WindowsFormsApp1
                 chartArea.AxisX.LabelStyle.Format = "HH:mm:ss"; // X轴时间格式
                 chartArea.AxisX.IntervalType = DateTimeIntervalType.Seconds; // X轴间隔
                 chartArea.AxisX.Interval = 1; // 每秒显示一个点
-                chartArea.AxisX.Title = "时间";
-                chartArea.AxisY.Title = "数值";
+                chartArea.AxisX.Title = "Time";
+                chartArea.AxisY.Title = "Value";
             }
             mychart.Series.Clear();
             // 初始化数据
@@ -36,15 +36,14 @@ namespace WindowsFormsApp1
             foreach (var item in gpuInfoList)
             {
                 Console.WriteLine(item);
-                var ls = new Series(item)
+                var ls = new Series(item.Title)
                 {
                     ChartType = SeriesChartType.Line,
                     XValueType = ChartValueType.DateTime,
                     BorderWidth = 1,
+                    Color= item.color,
                 };
-
-                 ls.Color = GPU.colors[i++];
-                filterToolStripMenuItem.DropDownItems.Add(new ToolStripMenuItem(item, null, (s, e) =>
+                filterToolStripMenuItem.DropDownItems.Add(new ToolStripMenuItem(item.Title, null, (s, e) =>
                 {
                     if (s is ToolStripMenuItem menuItem)
                     {
@@ -52,7 +51,7 @@ namespace WindowsFormsApp1
                         //   menuItem.Checked = !menuItem.Checked; // 切换选中状态
                     }
                 }));
-                var tsb = new ToolStripButton(item, null, (sender, e) =>
+                var tsb = new ToolStripButton(item.Title, null, (sender, e) =>
                   {
 
                       if (sender is ToolStripButton toolStripButton)
@@ -64,6 +63,7 @@ namespace WindowsFormsApp1
                 toolStrip1.Items.Add(tsb);
                 mychart.Series.Add(ls);
             }
+            
             foreach (var item in filterToolStripMenuItem.DropDownItems)
             {
                 if (item is ToolStripMenuItem menuItem)

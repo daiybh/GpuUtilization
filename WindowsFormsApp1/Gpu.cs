@@ -15,7 +15,16 @@ class GPU
 			System.Drawing.Color.Orange,
 			System.Drawing.Color.Black,
 		};
-	static public string[] GetGpuList()
+	public class GpuInfo
+	{
+        public string Title;
+
+		//public string busId;
+		//public string busId_dec;
+		//public string allString;
+		public System.Drawing.Color color;
+	}
+	static public List<GpuInfo> GetGpuList()
 	{
 		// return ["aa", "bb"];
 		var process = new Process
@@ -39,16 +48,24 @@ class GPU
 		  NVIDIA GeForce GTX 1080 Ti, 00000000:44:00.0
 		 */
 		var lines = output.Replace("\r", "").Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-		//foreach (var item in lines)
-		//{
-		//    var gpuInfo = new GpuInfo
-		//    {
-		//        Title = item,
-		//      //  brushes = brushList[gpuInfoList.Count],
-		//    };
-		//  //  gpuInfoList.Add(gpuInfo);
-		//}
-		return lines;
+		
+		List<GpuInfo> gpuList = new List<GpuInfo>();
+		foreach (var item in lines)
+		{
+			var ls = item.Split(',');
+			var pci= ls[1].Trim().Split(':');
+
+			int pci_bus = int.Parse(pci[1], System.Globalization.NumberStyles.HexNumber);
+			var gpuInfo = new GpuInfo
+			{
+				//allString = item,
+				Title = $"{pci_bus}:0x{pci[1]}:{ls[0]}",
+				//busId = pci[1],
+				color = colors[gpuList.Count % colors.Count],
+			};
+			gpuList.Add(gpuInfo);
+		}
+		return gpuList;
 	}
 	public class GPUUtiliaztions
 	{
