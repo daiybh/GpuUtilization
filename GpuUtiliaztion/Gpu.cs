@@ -59,7 +59,7 @@ class GPU
 			var gpuInfo = new GpuInfo
 			{
 				//allString = item,
-				Title = $"{pci_bus}:0x{pci[1]}:{ls[0]}",
+				Title = $"{pci_bus:D2}:0x{pci[1]}:{ls[0]}",
 				//busId = pci[1],
 				color = colors[gpuList.Count % colors.Count],
 			};

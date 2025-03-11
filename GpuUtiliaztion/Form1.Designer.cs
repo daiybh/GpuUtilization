@@ -39,11 +39,15 @@
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysTopMostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_AlwaysTopMost = new System.Windows.Forms.ToolStripButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.mychart)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // mychart
@@ -60,7 +64,7 @@
             legend1.TextWrapThreshold = 50;
             legend1.TitleAlignment = System.Drawing.StringAlignment.Near;
             this.mychart.Legends.Add(legend1);
-            this.mychart.Location = new System.Drawing.Point(0, 40);
+            this.mychart.Location = new System.Drawing.Point(0, 0);
             this.mychart.Margin = new System.Windows.Forms.Padding(6);
             this.mychart.Name = "mychart";
             this.mychart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
@@ -69,7 +73,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.mychart.Series.Add(series1);
-            this.mychart.Size = new System.Drawing.Size(1467, 791);
+            this.mychart.Size = new System.Drawing.Size(1467, 711);
             this.mychart.TabIndex = 0;
             this.mychart.Text = "chart1";
             // 
@@ -89,7 +93,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1467, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1467, 42);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -98,7 +102,7 @@
             this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.alwaysTopMostToolStripMenuItem});
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(100, 32);
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(100, 34);
             this.settingToolStripMenuItem.Text = "setting";
             // 
             // alwaysTopMostToolStripMenuItem
@@ -112,20 +116,29 @@
             // filterToolStripMenuItem
             // 
             this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            this.filterToolStripMenuItem.Size = new System.Drawing.Size(81, 32);
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(81, 34);
             this.filterToolStripMenuItem.Text = "Filter";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.toolStrip1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 42);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1467, 78);
+            this.panel1.TabIndex = 4;
             // 
             // toolStrip1
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_AlwaysTopMost});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 40);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.toolStrip1.Size = new System.Drawing.Size(1467, 38);
             this.toolStrip1.Stretch = true;
-            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripButton_AlwaysTopMost
@@ -136,25 +149,36 @@
             this.toolStripButton_AlwaysTopMost.Name = "toolStripButton_AlwaysTopMost";
             this.toolStripButton_AlwaysTopMost.Size = new System.Drawing.Size(40, 32);
             this.toolStripButton_AlwaysTopMost.Text = "Always TopMost";
-            this.toolStripButton_AlwaysTopMost.Click += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.mychart);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 120);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1467, 711);
+            this.panel2.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1467, 831);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.mychart);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "GpuUtiliaztion";
             ((System.ComponentModel.ISupportInitialize)(this.mychart)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,8 +192,10 @@
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alwaysTopMostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton_AlwaysTopMost;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
