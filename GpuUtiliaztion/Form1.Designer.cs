@@ -39,13 +39,13 @@
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysTopMostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_toolbar = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_AlwaysTopMost = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.mychart)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel_toolbar.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -119,14 +119,14 @@
             this.filterToolStripMenuItem.Size = new System.Drawing.Size(81, 34);
             this.filterToolStripMenuItem.Text = "Filter";
             // 
-            // panel1
+            // panel_toolbar
             // 
-            this.panel1.Controls.Add(this.toolStrip1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 42);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1467, 78);
-            this.panel1.TabIndex = 4;
+            this.panel_toolbar.Controls.Add(this.toolStrip1);
+            this.panel_toolbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_toolbar.Location = new System.Drawing.Point(0, 42);
+            this.panel_toolbar.Name = "panel_toolbar";
+            this.panel_toolbar.Size = new System.Drawing.Size(1467, 78);
+            this.panel_toolbar.TabIndex = 4;
             // 
             // toolStrip1
             // 
@@ -136,7 +136,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1467, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(1467, 44);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
@@ -147,7 +147,7 @@
             this.toolStripButton_AlwaysTopMost.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_AlwaysTopMost.Image")));
             this.toolStripButton_AlwaysTopMost.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_AlwaysTopMost.Name = "toolStripButton_AlwaysTopMost";
-            this.toolStripButton_AlwaysTopMost.Size = new System.Drawing.Size(40, 32);
+            this.toolStripButton_AlwaysTopMost.Size = new System.Drawing.Size(40, 38);
             this.toolStripButton_AlwaysTopMost.Text = "Always TopMost";
             // 
             // panel2
@@ -165,17 +165,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1467, 831);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_toolbar);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "GpuUtiliaztion";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.mychart)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_toolbar.ResumeLayout(false);
+            this.panel_toolbar.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -192,7 +193,7 @@
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alwaysTopMostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_toolbar;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton_AlwaysTopMost;
         private System.Windows.Forms.Panel panel2;

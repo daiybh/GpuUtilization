@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,10 +16,46 @@ namespace WindowsFormsApp1
 {
     public partial class Form1: Form
     {
+        // 导入 User32.dll 的 ReleaseCapture 和 SendMessage 方法
+        [DllImport("user32.dll")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll")]
+        private static extern void SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
+
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HTCAPTION = 0x2;
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
+        }
+        private void mychart_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            mychart_DoubleClick(sender, e);
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                changeWindowStyle();
+            }
+        }
         public Form1()
         {
             InitializeComponent();
+            this.MouseDown += Form1_MouseDown;
+            this.mychart.MouseDown += Form1_MouseDown;
+            
+            this.mychart.MouseDoubleClick += this.mychart_MouseDoubleClick;
+            this.KeyPreview = true;
+            
             var gpuInfoList = GPU.GetGpuList();
+
 
             // mychart.ChartAreas.Add(chartArea);
 
@@ -79,7 +116,7 @@ namespace WindowsFormsApp1
                 }
 
             }
-           
+          
         }
         private void onShowItem(string text)
         {
@@ -153,5 +190,20 @@ namespace WindowsFormsApp1
             alwaysTopMostToolStripMenuItem.Checked = this.TopMost;
             toolStripButton_AlwaysTopMost.Checked = this.TopMost;
         }
+        void changeWindowStyle()
+        {
+            bool b = this.FormBorderStyle.Equals(FormBorderStyle.None);
+            //b = xx++%2==0;
+            this.FormBorderStyle = b ? FormBorderStyle.Sizable : FormBorderStyle.None;
+            this.menuStrip1.Visible = b;
+            this.panel_toolbar.Visible = b;
+        }
+
+        private void mychart_DoubleClick(object sender, EventArgs e)
+        {
+            changeWindowStyle();
+
+        }
+
     }
 }
