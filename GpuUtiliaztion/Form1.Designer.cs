@@ -73,7 +73,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.mychart.Series.Add(series1);
-            this.mychart.Size = new System.Drawing.Size(1467, 711);
+            this.mychart.Size = new System.Drawing.Size(1467, 713);
             this.mychart.TabIndex = 0;
             this.mychart.Text = "chart1";
             // 
@@ -93,7 +93,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1467, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1467, 40);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -102,7 +102,7 @@
             this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.alwaysTopMostToolStripMenuItem});
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(100, 34);
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(100, 32);
             this.settingToolStripMenuItem.Text = "setting";
             // 
             // alwaysTopMostToolStripMenuItem
@@ -116,14 +116,14 @@
             // filterToolStripMenuItem
             // 
             this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            this.filterToolStripMenuItem.Size = new System.Drawing.Size(81, 34);
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(81, 32);
             this.filterToolStripMenuItem.Text = "Filter";
             // 
             // panel_toolbar
             // 
             this.panel_toolbar.Controls.Add(this.toolStrip1);
             this.panel_toolbar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_toolbar.Location = new System.Drawing.Point(0, 42);
+            this.panel_toolbar.Location = new System.Drawing.Point(0, 40);
             this.panel_toolbar.Name = "panel_toolbar";
             this.panel_toolbar.Size = new System.Drawing.Size(1467, 78);
             this.panel_toolbar.TabIndex = 4;
@@ -136,7 +136,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1467, 44);
+            this.toolStrip1.Size = new System.Drawing.Size(1467, 38);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
@@ -147,16 +147,16 @@
             this.toolStripButton_AlwaysTopMost.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_AlwaysTopMost.Image")));
             this.toolStripButton_AlwaysTopMost.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_AlwaysTopMost.Name = "toolStripButton_AlwaysTopMost";
-            this.toolStripButton_AlwaysTopMost.Size = new System.Drawing.Size(40, 38);
+            this.toolStripButton_AlwaysTopMost.Size = new System.Drawing.Size(40, 32);
             this.toolStripButton_AlwaysTopMost.Text = "Always TopMost";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.mychart);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 120);
+            this.panel2.Location = new System.Drawing.Point(0, 118);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1467, 711);
+            this.panel2.Size = new System.Drawing.Size(1467, 713);
             this.panel2.TabIndex = 5;
             // 
             // Form1

@@ -40,9 +40,13 @@ namespace WindowsFormsApp1
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+            if (e.KeyCode == Keys.Tab)
             {
                 changeWindowStyle();
+            }
+            else if(e.KeyCode==Keys.T)
+            {
+                setTopMost();
             }
         }
         public Form1()
@@ -53,7 +57,7 @@ namespace WindowsFormsApp1
             
             this.mychart.MouseDoubleClick += this.mychart_MouseDoubleClick;
             this.KeyPreview = true;
-            
+            toolStripButton_AlwaysTopMost.Checked = false;
             var gpuInfoList = GPU.GetGpuList();
 
 
@@ -182,13 +186,16 @@ namespace WindowsFormsApp1
             mychart.Invalidate(); // 重新绘制
         }
 
-       
+       void setTopMost()
+        {
+            this.TopMost = !this.TopMost;
+            alwaysTopMostToolStripMenuItem.Checked = this.TopMost;
+            toolStripButton_AlwaysTopMost.Checked = this.TopMost;
+        }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            this.TopMost = !this.TopMost; 
-            alwaysTopMostToolStripMenuItem.Checked = this.TopMost;
-            toolStripButton_AlwaysTopMost.Checked = this.TopMost;
+            setTopMost();
         }
         void changeWindowStyle()
         {
