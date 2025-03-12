@@ -180,7 +180,7 @@ namespace WindowsFormsApp1
             mychart.ChartAreas[0].AxisX.Minimum = mychart.Series[0].Points[0].XValue;
             mychart.ChartAreas[0].AxisX.Maximum = mychart.Series[0].Points[mychart.Series[0].Points.Count - 1].XValue;
 
-            mychart.ChartAreas[0].AxisY.Minimum = g_minY ; // 适当增加缓冲区
+            mychart.ChartAreas[0].AxisY.Minimum = 0 ; // 适当增加缓冲区
             mychart.ChartAreas[0].AxisY.Maximum = g_maxY + 5;
 
             mychart.Invalidate(); // 重新绘制
