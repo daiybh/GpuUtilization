@@ -49,6 +49,7 @@ namespace WindowsFormsApp1
                 setTopMost();
             }
         }
+        GPU gpu= new GPU();
         public Form1()
         {
             InitializeComponent();
@@ -58,7 +59,7 @@ namespace WindowsFormsApp1
             this.mychart.MouseDoubleClick += this.mychart_MouseDoubleClick;
             this.KeyPreview = true;
             toolStripButton_AlwaysTopMost.Checked = false;
-            var gpuInfoList = GPU.GetGpuList();
+            var gpuInfoList = gpu.GetGpuList();
 
 
             // mychart.ChartAreas.Add(chartArea);
@@ -151,10 +152,11 @@ namespace WindowsFormsApp1
        
         private void timer1_Tick(object sender, EventArgs e)
         {
-
             int g_minY = 100;
             int g_maxY = -1;
-            var Utilizations =GPU. GetGpuUtilization();
+            if (mychart.Series.Count < 1) return;
+            gpu.Fetch_GpuUtilization();
+            var Utilizations = gpu.GetGpuList();
             
             for (int i = 0; i < mychart.Series.Count; i++)
             {
@@ -184,9 +186,11 @@ namespace WindowsFormsApp1
             mychart.ChartAreas[0].AxisY.Maximum = g_maxY + 5;
 
             mychart.Invalidate(); // 重新绘制
+
+            //update button status with gpu.nvmlEnableState
         }
 
-       void setTopMost()
+        void setTopMost()
         {
             this.TopMost = !this.TopMost;
             alwaysTopMostToolStripMenuItem.Checked = this.TopMost;
