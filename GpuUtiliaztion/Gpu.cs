@@ -71,9 +71,12 @@ class GPU
                 var busId = GetStringFromSByteArray(info.busId);
                 var nvmlEnableState = NvGpu.NvmlDeviceGetDisplayMode(gpu);
 
-				var gpuInfo = new GpuInfo()
+                
+                var pci = busId.Trim().Split(':');
+                int pci_bus = int.Parse(pci[1], System.Globalization.NumberStyles.HexNumber);
+                var gpuInfo = new GpuInfo()
 				{
-					Title = $"{((nvmlEnableState == NvmlEnableState.NVML_FEATURE_DISABLED) ? "-" : "3D")}-{name} {busId}",
+					Title = $"{((nvmlEnableState == NvmlEnableState.NVML_FEATURE_DISABLED) ? "  " : "3D")}-[{pci_bus:D2},0x{pci[1]}] {name.Replace("NVIDIA ","")} ",
 					gpuId = i,
 					deviceHandle = gpu,
 					color = colors[i % colors.Count],
